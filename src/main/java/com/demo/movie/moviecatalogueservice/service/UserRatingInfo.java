@@ -19,10 +19,10 @@ public class UserRatingInfo {
 
 	@HystrixCommand(fallbackMethod = "getFallbackUserRatings",
 			commandProperties = {
-					@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
-					@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
-					@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
-					@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000")
+					@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000000"),
+					@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "50"),
+					@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "500"),
+					@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000")
 			}
 		)
 	public UserRating getUserRatings(String ratingUrl, String userId) {
